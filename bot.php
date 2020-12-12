@@ -4,8 +4,8 @@ ini_set('display_errors', true);
 error_reporting(E_ALL);
 
 chdir(__DIR__);
-if (!file_exists(__DIR__.'/madeline.php') || !filesize(__DIR__.'/madeline.php')) {
-    copy('https://phar.madelineproto.xyz/madeline.php', __DIR__.'/madeline.php');
+if (!file_exists(__DIR__ . '/madeline.php') || !filesize(__DIR__ . '/madeline.php')) {
+    copy('https://phar.madelineproto.xyz/madeline.php', __DIR__ . '/madeline.php');
 }
 
 $remote = 'bruninoit/AltervistaUserBot';
@@ -13,22 +13,22 @@ $branch = 'master';
 $url = "https://raw.githubusercontent.com/$remote/$branch";
 
 $version = file_get_contents("$url/av.version?v=new");
-if (!file_exists(__DIR__.'/av.version') || file_get_contents(__DIR__.'/av.version') !== $version) {
+if (!file_exists(__DIR__ . '/av.version') || file_get_contents(__DIR__ . '/av.version') !== $version) {
     foreach (explode("\n", file_get_contents("$url/files?v=new")) as $file) {
         if ($file) {
-            copy("$url/$file?v=new", __DIR__."/$file");
+            copy("$url/$file?v=new", __DIR__ . "/$file");
         }
     }
     foreach (explode("\n", file_get_contents("$url/basefiles?v=new")) as $file) {
-        if ($file && !file_exists(__DIR__."/$file")) {
-            copy("$url/$file?v=new", __DIR__."/$file");
+        if ($file && !file_exists(__DIR__ . "/$file")) {
+            copy("$url/$file?v=new", __DIR__ . "/$file");
         }
     }
 }
 
-require __DIR__.'/madeline.php';
-require __DIR__.'/functions.php';
-require __DIR__.'/_config.php';
+require __DIR__ . '/madeline.php';
+require __DIR__ . '/functions.php';
+require __DIR__ . '/_config.php';
 
 if (!file_exists('bot.lock')) {
     touch('bot.lock');

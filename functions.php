@@ -29,10 +29,20 @@ function shutdown_function($lock)
 function sm($chatID, $text, $parsemode = 'HTML', $reply = 0)
 {
     global $MadelineProto;
+    
     if ($reply) {
-        $MadelineProto->messages->sendMessage(['peer' => $chatID, 'message' => $text, 'parse_mode' => $parsemode, 'reply_to_msg_id' => $reply]);
+        $MadelineProto->messages->sendMessage([
+            'peer'            => $chatID, 
+            'message'         => $text, 
+            'parse_mode'      => $parsemode, 
+            'reply_to_msg_id' => $reply
+        ]);
     } else {
-        $MadelineProto->messages->sendMessage(['peer' => $chatID, 'message' => $text, 'parse_mode' => $parsemode]);
+        $MadelineProto->messages->sendMessage([
+            'peer'       => $chatID, 
+            'message'    => $text, 
+            'parse_mode' => $parsemode
+        ]);
     }
 }
 
