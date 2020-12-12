@@ -1,4 +1,19 @@
 # AltervistaUserBot
+
+Updated source of the t.me/altervistauserbot guide
+
+To know how to use this code, read the guide, or follow this summary of the key steps:
+
+Create altervista web space
+Activate cloudflare, https, s2s
+Load bot.php
+Launch bot.php and follow the various instructions (first loading is slow)
+To log in again, use a different folder or delete the session from the telegram settings.
+
+For support, join the Telegram group.
+
+=====================================
+
 Source aggiornato della guida t.me/altervistauserbot
 
 
